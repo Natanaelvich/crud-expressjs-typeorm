@@ -7,6 +7,7 @@ import {
   PrimaryColumn,
   UpdateDateColumn,
 } from "typeorm";
+import { Exclude } from 'class-transformer';
 import { v4 as uuid } from "uuid";
 import { Category } from "./Category";
 
@@ -21,6 +22,7 @@ export class Movie {
   @Column()
   description: string;
 
+  @Exclude()
   @Column()
   category_id : string;
   
@@ -31,9 +33,11 @@ export class Movie {
   @Column()
   duration: number;
 
+  @Exclude()
   @CreateDateColumn()
   created_at: Date;
 
+  @Exclude()
   @UpdateDateColumn()
   updated_at: Date;
 
